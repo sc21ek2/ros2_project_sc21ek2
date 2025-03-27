@@ -29,7 +29,7 @@ class colourIdentifier(Node):
         # We covered which topic to subscribe to should you wish to receive image data
 
         self.bridge = CvBridge()
-        self.subscription = self.create_subscription(Image, '/camera/image_raw', self.callback, 10)
+        self.subscription = self.create_subscription(Image, '/camera/image_raw', self.image_callback, 30)
         self.subscription  # prevent unused variable warning
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
         self.move_cmd = Twist()
@@ -43,8 +43,8 @@ class colourIdentifier(Node):
         if self.target_detected or self.goal_running:
             return
         
-        x = random.uniform(-4,4)
-        y = random.uniform(-4,4)
+        x = random.uniform(0.0,0.0)
+        y = random.uniform(0.0,0.0)
     
         
         goal = NavigateToPose.Goal()
@@ -57,6 +57,8 @@ class colourIdentifier(Node):
         self.goal_running=True
         self.nav_client.send_goal_async(goal).add_done_callback(self.get_result_callback)
         
+        self.get_logger().info("sending goal")
+        
     def goal_response_callback(self,future):
         goal_handle = future.result()
         if not goal_handle.accepted:
@@ -68,9 +70,13 @@ class colourIdentifier(Node):
         goal_handle.get_result_async().add_done_callback(self.get_result_callback)
        
     def get_result_callback(self, future):
-        result = future.result().result
-        self.get_logger().info(f'Navigation result: {result}') 
+        try:
+            result = future.result()
+            self.get_logger().info(f'Navigation result: {result}') 
+        except Exception as e:
+                self.get_logger().error(f'{e}') 
 
+        self.goal_running = False
 
     def image_callback(self, data):
         # Convert the received image into a opencv image
@@ -111,12 +117,12 @@ class colourIdentifier(Node):
                     self.move_cmd.linear.x =0.0
                     self.move_cmd.angular.z =0.0
                     self.target_detected = True
-                    print("BLUE BOX WITHIN ONE METER, STOPPING")
+                    self.get_logger().info("BLUE BOX WITHIN ONE METER, STOPPING")
                     
                 else:
                     self.move_cmd.linear.x =0.15
                     self.move_cmd.angular.z = -float(error)/200       
-                    ("APPROACHING BLUE BOX")
+                    self.get_logger().info("APPROACHING BLUE BOX")
             
         else:
             self.move_cmd.linear.x =0.0
@@ -142,15 +148,18 @@ def main():
     
 
     try:
-        rclpy.spin(cI)
+        node = colourIdentifier()
+        rclpy.spin(node)
             
-    except ROSInterruptException:
+    except Exception as e:
+        print (f"exception: {e}")
         pass
     
     finally:
-        cI.destroy_node()
-        rclpy.shutdown()
-        cv2.destroyAllWindows()
+        if node is not None:
+            node.destroy_node()
+            rclpy.shutdown()
+            cv2.destroyAllWindows()
 # Check if the node is executing in the main path
 if __name__ == '__main__':
     main()
