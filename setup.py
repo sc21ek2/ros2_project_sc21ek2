@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'ros2_project = ros2_project_sc21ek2.final_project:main',
+            'final_project = ros2_project_sc21ek2.final_project:main',
 
         ],
     },
