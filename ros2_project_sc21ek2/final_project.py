@@ -11,6 +11,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.exceptions import ROSInterruptException
 from rclpy.action import ActionClient
+from math import sin, cos
 
 import cv2
 import numpy as np
@@ -42,18 +43,13 @@ class colourIdentifier(Node):
     def send_random_goal(self):
         if self.target_detected or self.goal_running:
             return
-        
-        x = random.uniform(0.0,0.0)
-        y = random.uniform(0.0,0.0)
-    
+   
         
         goal = NavigateToPose.Goal()
-        goal.pose.pose.position.x = x
-        goal.pose.pose.position.y = y
-        goal.pose.pose.orientation.w = 1.0
-        goal.pose.header.frame_id = 'map'
-        goal.pose.header.stamp = self.get_clock().now().to_msg()
-        
+        goal.pose.pose.position.x = 0.313
+        goal.pose.pose.position.y = -7.81
+        goal.pose.pose.orientation.z = sin(0.00256 / 2)
+        goal.pose.header.frame_id = 'map'        
         self.goal_running=True
         self.nav_client.send_goal_async(goal).add_done_callback(self.get_result_callback)
         
@@ -130,12 +126,13 @@ class colourIdentifier(Node):
         
         self.publisher.publish(self.move_cmd)
         
-        filtered = cv2.bitwise_and(image,image,mask=blue_image)
-        cv2.namedWindow("camera_Feed",cv2.WINDOW_NORMAL)
-        
-
-        cv2.imshow('camera_Feed', filtered)
-        cv2.waitKey(3)
+        # filtered = cv2.bitwise_and(image,image,mask=blue_image)
+        # cv2.namedWindow("camera_Feed",cv2.WINDOW_NORMAL)
+        # cv2.resizeWindow('camera_Feed',320,240)
+        # cv2.waitKey(3)
+ 
+        # cv2.imshow('camera_Feed', filtered)
+       #  cv2.waitKey(3)
         
         
         
@@ -163,3 +160,4 @@ def main():
 # Check if the node is executing in the main path
 if __name__ == '__main__':
     main()
+
