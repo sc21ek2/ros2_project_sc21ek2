@@ -20,10 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'first_step = ros2_project_sc21ek2.first_step:main',
-            'second_step = ros2_project_sc21ek2.second_step:main',
-            'third_step = ros2_project_sc21ek2.third_step:main',
-            'fourth_step = ros2_project_sc21ek2.fourth_step:main',
+            'ros2_project = ros2_project_sc21ek2.final_project:main',
+
         ],
     },
 )

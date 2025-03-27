@@ -1,0 +1,3 @@
+[console_scripts]
+ros2_project = ros2_project_sc21ek2.ros2project:main
+
