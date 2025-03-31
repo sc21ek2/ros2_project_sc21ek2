@@ -11,22 +11,23 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from math import sin, cos
-
 import cv2
 import numpy as np
 from cv_bridge import CvBridge
-
 from geometry_msgs.msg import Twist, PoseStamped
 from sensor_msgs.msg import Image
 import signal
 from nav2_msgs.action import NavigateToPose
 import random
 import time
+
+
 class RGBNavigator(Node):
     def __init__(self):
         super().__init__('rgb_nav')
         
         self.sensitivity = 10
+        self.goal_active = False
 
         self.nav_client = ActionClient(self, NavigateToPose,'navigate_to_pose')
         self.subscription = self.create_subscription(Image, '/camera/image_raw', self.callback, 30)
@@ -42,11 +43,10 @@ class RGBNavigator(Node):
         self.detected = False;
         
         self.target_coords = [
-            (-2.18, -4.17, 0.00256),
-            (1.64,-7.46,0.00641),
-            (0.119,-10.8,0.00641)
+            (-4.01, -2.27, -0.00143),
+            (2.41,-7.82,0.-0.00143),
+            (-2.57,-9.02,-0.00143)
         ]
-        
         self.index = 0
         
         self.timer = self.create_timer(2.0, self.timer_callback)
@@ -67,12 +67,15 @@ class RGBNavigator(Node):
             self.send_goal_future.add_done_callback(self.goal_response_callback)
             
     def timer_callback(self):
+        if self.goal_active:
+            return
         if not all ([self.found_red, self.found_green, self.found_blue]):
             if self.index <len(self.target_coords):
                 x,y, yaw = self.target_coords[self.index]
                 self.send_goal(x,y,yaw)
                 self.get_logger().info('Goal sent')
                 self.index+=1
+                self.goal_active= True
             else:
                 self.get_logger().info('not all colours Detected ')
 
@@ -94,7 +97,7 @@ class RGBNavigator(Node):
     def get_result_callback(self, future):
         result = future.result().result
         self.get_logger().info(f'Navigation result: {result}')
-        
+        self.goal_active = False;
         self.spinning = True;
         self.detected = False;
         twist = Twist()
@@ -104,7 +107,6 @@ class RGBNavigator(Node):
 
     def feedback_callback(self, feedback_msg):
             feedback = feedback_msg.feedback
-            print(feedback)           
 
     def col_detected(self,colour):
         if self.spinning and not self.detected:

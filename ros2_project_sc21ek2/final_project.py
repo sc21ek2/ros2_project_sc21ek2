@@ -27,24 +27,25 @@ class RGBNavigator(Node):
         super().__init__('rgb_nav')
         
         self.sensitivity = 10
+        self.goal_active = False
 
         self.nav_client = ActionClient(self, NavigateToPose,'navigate_to_pose')
         self.subscription = self.create_subscription(Image, '/camera/image_raw', self.callback, 30)
         self.bridge = CvBridge()
-        
-        self.publisher = self.create_publisher(Twist, '/cmd_vel',10)
-        
+                
         self.found_red = False;
         self.found_green = False;
         self.found_blue = False;
-        self.reach_blue = False;
-        self.spinning = False;
-        self.detected = False;
+        self.reach_blue = False;        
         
         self.target_coords = [
-            (-4.01, -2.27, -0.00143),
-            (2.41,-7.82,0.-0.00143),
-            (-2.57,-9.02,-0.00143)
+            (-3.9, -1.65, 0.00247),
+            (3.07,-7.35,-0.00143),
+            (-3.08,-9.16,-0.00143),
+           # (2.16, -8.04, -0.00134),
+           # (1.99,-9.21,-0.00143),
+           # (-2.75,-9.11,-0.00143),
+            
         ]
         self.index = 0
         
@@ -66,12 +67,15 @@ class RGBNavigator(Node):
             self.send_goal_future.add_done_callback(self.goal_response_callback)
             
     def timer_callback(self):
+        if self.goal_active:
+            return
         if not all ([self.found_red, self.found_green, self.found_blue]):
             if self.index <len(self.target_coords):
                 x,y, yaw = self.target_coords[self.index]
                 self.send_goal(x,y,yaw)
                 self.get_logger().info('Goal sent')
                 self.index+=1
+                self.goal_active= True
             else:
                 self.get_logger().info('not all colours Detected ')
 
@@ -93,45 +97,22 @@ class RGBNavigator(Node):
     def get_result_callback(self, future):
         result = future.result().result
         self.get_logger().info(f'Navigation result: {result}')
-        
-        self.spinning = True;
-        self.detected = False;
-        twist = Twist()
-        twist.angular.z= 0.5
-        self.publisher.publish(twist)
+        self.goal_active = False;
 
 
     def feedback_callback(self, feedback_msg):
             feedback = feedback_msg.feedback
-            print(feedback)           
 
-    def col_detected(self,colour):
-        if self.spinning and not self.detected:
-            self.get_logger().info(f'{colour} detected')
-            self.detected=True;
-            twist = Twist()
-
-            twist.angular= 0.0
-            self.publisher.publish(twist)
-
-            
-            time.sleep(5)
-            self.spinningFalse
-        
-            
     def callback(self, data):
             image = self.bridge.imgmsg_to_cv2(data, 'bgr8')
             Hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-            cv2.namedWindow('camera_Feed',cv2.WINDOW_NORMAL)
-            cv2.imshow('camera_Feed', image)
-            cv2.resizeWindow('camera_Feed',320,240)
-            cv2.waitKey(3)
+
             
             colours_hsv = {
                 'red_image': cv2.inRange(Hsv_image, np.array([0 - self.sensitivity, 100, 100]), np.array([0 + self.sensitivity, 255, 255])),
                 'green_image': cv2.inRange(Hsv_image, np.array([60 - self.sensitivity, 100, 100]), np.array([60 + self.sensitivity, 255, 255])),
-                'blue_image': cv2.inRange(Hsv_image, np.array([100 - self.sensitivity, 150, 50]), np.array([100 + self.sensitivity, 255, 255])),
+                'blue_image': cv2.inRange(Hsv_image, np.array([110 - self.sensitivity, 100, 50]), np.array([130 + self.sensitivity, 255, 255])),
 
 
 
@@ -163,7 +144,9 @@ class RGBNavigator(Node):
                                     self.found_blue = True
                                     self.get_logger().info('blue detected')
     
-            cv2.imshow('Colour DEtected', image)
+            cv2.namedWindow('camera_Feed',cv2.WINDOW_NORMAL)
+            cv2.imshow('camera_Feed', image)
+            cv2.resizeWindow('camera_Feed',320,240)
             cv2.waitKey(3)
 
 
