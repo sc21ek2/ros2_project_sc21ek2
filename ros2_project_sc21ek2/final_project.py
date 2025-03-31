@@ -29,7 +29,7 @@ class RGBNavigator(Node):
             
         ]
         self.index = 0
-        self.timer = self.create_timer(1.0,self.timer_callback) #trigger goal send
+        self.timer = self.create_timer(3.0,  self.timer_callback) #trigger goal send
     
     
     def send_goal(self,x,y,yaw): #sends goasl to nav2
@@ -68,6 +68,7 @@ class RGBNavigator(Node):
         result = future.result().result
         self.get_logger().info(f'Navigation result: {result}')
         self.goal_active = False
+        self.index+=1
 
     def feedback_callback(self, feedback_msg):
             feedback = feedback_msg.feedback
