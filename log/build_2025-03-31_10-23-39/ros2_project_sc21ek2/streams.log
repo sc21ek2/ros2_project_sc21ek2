@@ -1,0 +1,37 @@
+[0.903s] Invoking command in '/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2': PS1=[COMP3631] Singularity> \w $ PYTHONPATH=/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/prefix_override:/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ros2_project_sc21ek2 build --build-base /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build install --record /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/install.log --single-version-externally-managed
+[1.171s] running egg_info
+[1.172s] creating build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info
+[1.173s] writing build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/PKG-INFO
+[1.178s] writing dependency_links to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/dependency_links.txt
+[1.180s] writing entry points to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/entry_points.txt
+[1.182s] writing requirements to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/requires.txt
+[1.183s] writing top-level names to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/top_level.txt
+[1.186s] writing manifest file 'build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/SOURCES.txt'
+[1.189s] reading manifest file 'build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/SOURCES.txt'
+[1.192s] writing manifest file 'build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/SOURCES.txt'
+[1.193s] running build
+[1.194s] running build_py
+[1.195s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build
+[1.196s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib
+[1.197s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2
+[1.198s] copying ros2_project_sc21ek2/__init__.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2
+[1.201s] copying ros2_project_sc21ek2/final_project.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2
+[1.205s] running install
+[1.205s] running install_lib
+[1.208s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2
+[1.210s] copying /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2/__init__.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2
+[1.213s] copying /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2/final_project.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2
+[1.220s] byte-compiling /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2/__init__.py to __init__.cpython-310.pyc
+[1.224s] byte-compiling /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2/final_project.py to final_project.cpython-310.pyc
+[1.229s] running install_data
+[1.230s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index
+[1.231s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index/resource_index
+[1.232s] creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index/resource_index/packages
+[1.234s] copying resource/ros2_project_sc21ek2 -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index/resource_index/packages
+[1.237s] copying package.xml -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ros2_project_sc21ek2
+[1.241s] running install_egg_info
+[1.243s] Copying build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info to /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2-0.0.0-py3.10.egg-info
+[1.282s] running install_scripts
+[1.300s] Installing final_project script to /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/ros2_project_sc21ek2
+[1.303s] writing list of installed files to '/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/install.log'
+[1.324s] Invoked command in '/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2' returned '0': PS1=[COMP3631] Singularity> \w $ PYTHONPATH=/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/prefix_override:/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/ros2_project_sc21ek2 build --build-base /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build install --record /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/install.log --single-version-externally-managed

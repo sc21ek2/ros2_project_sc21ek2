@@ -1,0 +1,35 @@
+running egg_info
+creating build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info
+writing build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/PKG-INFO
+writing dependency_links to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/dependency_links.txt
+writing entry points to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/entry_points.txt
+writing requirements to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/requires.txt
+writing top-level names to build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/top_level.txt
+writing manifest file 'build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/SOURCES.txt'
+reading manifest file 'build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/SOURCES.txt'
+writing manifest file 'build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2
+copying ros2_project_sc21ek2/__init__.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2
+copying ros2_project_sc21ek2/final_project.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2
+running install
+running install_lib
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2
+copying /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2/__init__.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2
+copying /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/build/lib/ros2_project_sc21ek2/final_project.py -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2
+byte-compiling /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2/__init__.py to __init__.cpython-310.pyc
+byte-compiling /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2/final_project.py to final_project.cpython-310.pyc
+running install_data
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index/resource_index
+creating /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index/resource_index/packages
+copying resource/ros2_project_sc21ek2 -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ament_index/resource_index/packages
+copying package.xml -> /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/share/ros2_project_sc21ek2
+running install_egg_info
+Copying build/ros2_project_sc21ek2/ros2_project_sc21ek2.egg-info to /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/python3.10/site-packages/ros2_project_sc21ek2-0.0.0-py3.10.egg-info
+running install_scripts
+Installing final_project script to /uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/install/ros2_project_sc21ek2/lib/ros2_project_sc21ek2
+writing list of installed files to '/uolstore/home/student_lnxhome01/sc21ek2/ros2_ws/src/ros2_project_sc21ek2/build/ros2_project_sc21ek2/install.log'

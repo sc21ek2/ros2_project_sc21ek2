@@ -11,17 +11,17 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from math import sin, cos
+
 import cv2
 import numpy as np
 from cv_bridge import CvBridge
+
 from geometry_msgs.msg import Twist, PoseStamped
 from sensor_msgs.msg import Image
 import signal
 from nav2_msgs.action import NavigateToPose
 import random
 import time
-
-
 class RGBNavigator(Node):
     def __init__(self):
         super().__init__('rgb_nav')
@@ -42,10 +42,11 @@ class RGBNavigator(Node):
         self.detected = False;
         
         self.target_coords = [
-            (-4.01, -2.27, -0.00143),
-            (2.41,-7.82,0.-0.00143),
-            (-2.57,-9.02,-0.00143)
+            (-2.18, -4.17, 0.00256),
+            (1.64,-7.46,0.00641),
+            (0.119,-10.8,0.00641)
         ]
+        
         self.index = 0
         
         self.timer = self.create_timer(2.0, self.timer_callback)
